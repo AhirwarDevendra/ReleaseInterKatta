@@ -31,7 +31,7 @@ angular.module('InternKatta', ['ionic'])
       templateUrl:'templates/home.html',
       controller:"HomeController"
     })
-      .state('find',{
+    .state('find',{
       url:'/find',
       templateUrl:'templates/findOption.html',
       controller:'FindOptionController'
@@ -92,9 +92,35 @@ angular.module('InternKatta', ['ionic'])
        $scope.category = response;
       });  
 
-      $scope.frm = {};
+    $scope.groups = [];
+  for (var i=0; i<10; i++) {
+    $scope.groups[i] = {
+      name: i,
+      items: [],
+      show: false
+    };
+    for (var j=0; j<3; j++) {
+      $scope.groups[i].items.push(i + '-' + j);
+    }
+  }
+  
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+  $scope.toggleGroup = function(group) {
+    group.show = !group.show;
+  };
+  $scope.isGroupShown = function(group) {
+    return group.show;
+  };
+    
+        $scope.frm = {};
 
       $scope.findInternss = function($param){
+          alert("Btn Clicked");
+          
+    /*
         var optionsCSV = '';
         $scope.category.forEach(function(option) {
 
@@ -125,29 +151,7 @@ angular.module('InternKatta', ['ionic'])
             $state.go('internshiplist');
         }
         
-        
-            /*var request = $http({
-                method: "post",
-                url: "php/findIntern.php",
-                data: {
-                    CityName: $param.CityName,
-                    FunctionalArea: $param.FunctionalArea,
-                    options : optionsCSV
-                },
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
-            });
-            /* Check whether the HTTP Request is Successfull or not. *
-            request.success(function (data) {
-                $scope.message = "From PHP file : "+data;
-                //window.location.href('findinternshipresult.html');
-            });        
-            $log.info($param);
-            $http.post('php/findIntern.php',{'city':$param.city,'selectedArea':$param.selectedArea,'Category_Name':optionsCSV})
-            .success(function(data){
-              alert('success'+$param.city);
-            })
-            .error(function(err){
-              alert('failure');
-            });*/
+        */
+            
       }
 }])

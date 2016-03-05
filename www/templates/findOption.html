@@ -1,6 +1,101 @@
 <ion-view title="Find" align="center">
-	<ion-content>		
-		<style type="text/css">
+    <ion-content>	
+        	<!--<div id="full" style="border:2px;">-->
+	   <div class="card">
+            <div class="row">
+                <div class="col"><h4>Find Your Dream Internship</h4></div>
+            </div>
+        </div>
+        <div class="card" >
+            
+                <label class="item item-input item-select">
+                    <div class="input-label">City</div>
+                    <select>
+                        <option value="" selected>Select City</option>
+                        <option  ng-repeat="x in city|orderBy:'CityName'" value="{{ x.CityName }}">
+		                          {{ x.CityName }}
+		                </option>
+                    </select>
+                </label>
+                <br>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                      Functional Area
+                    </div>
+                    <select ng-model="myFunctionalArea"> 
+                      <option selected>Select Functional Area</option>
+                      <option value="{{ x.FunctionalArea }}"  ng-repeat="x in functionalarea|orderBy:'FunctionalArea'">{{ x.FunctionalArea }}                           </option>
+                    </select>
+              </label>
+                <br>
+                <label class="item item-input item-select">
+                    <div class="input-label">
+                      Category
+                    </div>
+                    <select>
+                      <option selected>Select Category</option>
+                      <option>Mumbai</option>
+                      <option>Pune</option>
+                    </select>
+                </label> 
+            
+           <ion-list>
+        <div ng-repeat="group in groups">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            Group {{group.name}}
+          </ion-item>
+          <ion-item class="item-accordion"
+                    ng-repeat="item in group.items"
+                    ng-show="isGroupShown(group)">
+            {{item}}
+          </ion-item>
+        </div>
+      </ion-list>
+            <!--<div ng-switch="myFunctionalArea">
+                <div ng-switch-when="Multimedia">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+            </div>
+            -->
+            <!--
+            Select a topic:
+  <select ng-model="myVar">
+    <option value="">
+    <option value="dogs">Dogs
+    <option value="tuts">Tutorials
+    <option value="cars">Cars
+  </select>
+            <div ng-switch="myVar">
+  <div ng-switch-when="dogs">
+     <h1>Dogs</h1>
+     <p>Welcome to a world of dogs.</p>
+  </div>
+  <div ng-switch-when="tuts">
+     <h1>Tutorials</h1>
+     <p>Learn from examples.</p>
+  </div>
+  <div ng-switch-when="cars">
+     <h1>Cars</h1>
+     <p>Read about cars.</p>
+  </div>
+</div>-->
+                <div class="card" ng-click="findInternss()">
+                    <div class="row">
+                        <div class="col"><h4>Find Your Dream Internship</h4></div>
+                    </div>
+                </div>
+                
+            
+        </div>
+        
+    </ion-content>
+</ion-view>
+<!--<style type="text/css">
 		#block{
 		  width: 85%;
 		  height: 30%;
@@ -16,18 +111,15 @@
 		  float: left;
 		}
 		</style>   
-
-		<form id="findform" name="ddname" ng-submit="findInternss(frm)">
-        	<div id="full" style="border:2px;">
-	            <center><h3 style="margin-top:20px;">Find Internship</h3></center>
-	            <p style="margin-top:3%;margin-left:5%;">Select</p>
+-->
+	            <!--<p style="margin-top:3%;margin-left:5%;">Select</p>
 	            <div id="selectdiv" class="form-group">
-		            <!--<label id="labeldiv">Select City</label>
+		            //Comment<label id="labeldiv">Select City</label>
 		            <select class="form-control select2" style="width: 100%;"  ng-model="frm.CityName">
 		                <option  ng-repeat="x in city|orderBy:'CityName'" value="{{ x.CityName }}">
 		                          {{ x.CityName }}
 		                </option>
-		            </select>-->
+		            </select> //Comment
 		            <label class="item item-input item-select">
 				    <div class="input-label">
 				      City
@@ -41,10 +133,10 @@
 	            </div>
 	            <p style="margin-top:2%;margin-left:5%;">&</p>
 	            <div id="selectdiv" class="form-group">
-	                <!-- <label id="labeldiv">Select Functional Area</label>
+	                 Comment <label id="labeldiv">Select Functional Area</label>
 	                <select class="form-control select2" style="width: 100%;"  ng-model="frm.FunctionalArea">
 	                    <option value="{{ x.FunctionalArea }}"  ng-repeat="x in functionalarea|orderBy:'FunctionalArea'">{{ x.FunctionalArea }}</option>
-	                </select> -->
+	                </select> //Comment
 		            <label class="item item-input item-select">
 				    <div class="input-label">
 				      Functional Area
@@ -60,17 +152,16 @@
         		<label id="labeldiv" style="margin-left:6%;">Category you have</label>
 				<div id="" style="width:100%;overflow-y:scroll; overflow-x:hidden; height:260px; margin-left:4%;">
   					<div id="block" ng-repeat="x in category|orderBy:'Category_Name'" ng-click="checkbx(id)">
-    					<!--<input type="checkbox" id="{{x.Category_Name}}" ng-model="x.value">
-    					{{ x.Category_Name }}<br>-->
+    					//Comment<input type="checkbox" id="{{x.Category_Name}}" ng-model="x.value">
+    					{{ x.Category_Name }}<br> // Comment
     					<ion-checkbox  id="{{x.Category_Name}}" ng-model="x.value" style="border:none"  on-double-tap="onPop({{x.Category_Name}})">
     					{{ x.Category_Name }}</ion-checkbox><br>
   					</div>
 				</div>
-				<!--<button type="submit" class="btn bg-maroon margin">Find Internships</button> ui-sref="internshiplist" -->
+				//Comment <button type="submit" class="btn bg-maroon margin">Find Internships</button> ui-sref="internshiplist" //Comment
 				<center><button type="submit" ng-click="findInternss()" class="button button-small" id="defaultColor" style="bottom:0;margin-top:5%;padding-left:10%;padding-right:10%; color: #fff;">Find Internships</button></center>
 				
-        	</div>  
-        </form>    
+        	</div>-->
+        
 			
-	</ion-content>
-</ion-view>
+	
