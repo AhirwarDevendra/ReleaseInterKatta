@@ -3,7 +3,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('InternKatta', ['ionic'])
+angular.module('InternKatta', ['ionic','firebase'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -35,6 +35,11 @@ angular.module('InternKatta', ['ionic'])
       url:'/find',
       templateUrl:'templates/findOption.html',
       controller:'FindOptionController'
+    })
+    .state('internshiplist',{
+      url:'/internshiplist',
+      templateUrl:'templates/internshiplist.html',
+      controller:'InternshiplistController'
     })
 
     $urlRouterProvider.otherwise("/home");
@@ -237,7 +242,16 @@ $scope.showInternship = function()
         return show;
     }
     
+        if($scope.SelectArea=="IT and Computers")
+        {
+            $scope.ShowArea = false;
+        }
+        else
+        {
+                $scope.ShowArea = true;
+        }
     
+    alert($scope.SelectArea);
     
  /* $scope.toggleGroup = function(group) {
     group.show = !group.show;
@@ -251,7 +265,46 @@ $scope.showInternship = function()
 
       $scope.findInternss = function($param){
           
-        alert($scope.choice.ITChoice+" "+$scope.choice.myFunctionalArea+" "+$scope.choice.CityName);
+        //alert($scope.choice.myFunctionalArea+" "+$scope.choice.CityName);
+          
+        var selectedCategory = null;  
+        if($scope.choice.myFunctionalArea == "IT and Computers")
+        {
+            selectedCategory = $scope.choice.ITChoice;
+        }
+        else if($scope.choice.myFunctionalArea == "Management")  
+        {
+            selectedCategory = $scope.choice.ManagementChoice;
+        }
+        else if($scope.choice.myFunctionalArea == "Multimedia")
+        {
+             selectedCategory = $scope.choice.MultimediaChoice;
+        }
+        else
+        {
+            selectedCategory = null
+        }
+          
+        if($scope.choice.CityName == null || $scope.choice.myFunctionalArea == null)
+        {
+            alert("Please Select Required Field");
+        }
+        else
+        {
+            
+            
+            alert("Success Category "+$scope.choice.myFunctionalArea);
+            //$state.go('internshiplist');
+        }
+          
+        /*if($scope.choice.ITChoice == null)
+        {
+            alert("select Category");
+        }
+        else
+        {
+            $state.go('internshiplist');
+        }*/
           //alert("Btn Clicked " + document.getElementById("InternCity").value+" "+document.getElementById("InternArea").value);
           
     /*
@@ -284,4 +337,8 @@ $scope.showInternship = function()
         */
             
       }
+}])
+
+.controller('InternshiplistController',['$scope','$ionicSideMenuDelegate','$firebaseArray',function($scope, $ionicSideMenuDelegate,$firebaseArray) {
+        console.log("List Controller");
 }])

@@ -15,7 +15,7 @@
             
                 <label class="item item-input item-select">
                     <div class="input-label">City</div>
-                    <select id="InternCity" ng-model="choice.CityName">
+                    <select ng-model="choice.CityName">
                         <option value="" selected>Select Your City</option>
                         <option ng-repeat="x in city|orderBy:'Name'" value="{{ x.Name }}">
 		                          {{ x.Name }}
@@ -28,7 +28,7 @@
                     <div class="input-label">
                       Functional Area
                     </div>
-                    <select id="InternArea" ng-model="choice.myFunctionalArea">
+                    <select ng-model="choice.myFunctionalArea" ng-model="SelectArea">
                         <option value="" selected>Select Your Functional Area</option>
                         <option value="{{ x.Name }}"  ng-repeat="x in functionalArea|orderBy:'Name'">
                                 {{ x.Name }}                           
@@ -37,8 +37,24 @@
                 
                 </label>
                 <br>
+                
                     
-                <ion-list>
+                   <div ng-switch="choice.myFunctionalArea">
+                        <div ng-switch-when="">
+                            <h1>No Functional Area Selected Please Select </h1>
+                        </div>
+                        <div ng-switch-when="IT and Computers" class="card animated" ng-class="(choice.myFunctionalArea == 'IT and Computers') ? 'bounceInRight' : 'bounceOutLeft'">
+                            <h1>IT and Computer Functional Area Selected </h1>
+                        </div>
+                        <div ng-switch-when="Management" class="card animated" ng-class="(choice.myFunctionalArea == 'Management') ? 'bounceInLeft' : 'bounceOutRight'">
+                            <h1>Management Functional Area Selected </h1>
+                        </div>
+                        <div ng-switch-when="Multimedia" class="card animated" ng-class="(choice.myFunctionalArea == 'Multimedia') ? 'bounceInLeft' : 'bounceOutRight'">
+                            <h1>Multimedia Functional Area Selected </h1>
+                        </div>
+                    </div>
+                
+                <!--<ion-list>
                     <ion-item class="item-stable"
                               ng-click="toggleCategory()"
                               ng-class="{active: isCategoryShown()}">
@@ -55,12 +71,20 @@
                             </div>
                             <div ng-switch-when="IT and Computers">
                                
-                                 <ion-radio ng-repeat="x in Category.ITCategory"
+                                 //Comment<ion-radio ng-repeat="x in Category.ITCategory"
                                             ng-model="choice.ITChoice"
                                             ng-show="isCategoryShown()"
                                             value="{{x.Name}}">
                                      {{x.Name}}
+                                </ion-radio>//Comment
+                                
+                                <ion-radio ng-model="choice.ITChoice"
+                                           ng-show="isCategoryShown()"
+                                           value="Android">
+                                        Android
                                 </ion-radio>
+                                           
+                                
   
                                 
                             </div>
@@ -85,7 +109,7 @@
                         </div>
                     </ion-item>
                     
-                </ion-list>
+                </ion-list>-->
         
                 <div class="card" ng-click="findInternss(choice)" >
                     <div class="row">
