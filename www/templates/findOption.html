@@ -8,88 +8,94 @@
         </div>
         <div class="card" >
             
+            
+                <form>
+                
+            
+            
                 <label class="item item-input item-select">
                     <div class="input-label">City</div>
-                    <select>
-                        <option value="" selected>Select City</option>
-                        <option  ng-repeat="x in city|orderBy:'CityName'" value="{{ x.CityName }}">
-		                          {{ x.CityName }}
+                    <select id="InternCity" ng-model="choice.CityName">
+                        <option value="" selected>Select Your City</option>
+                        <option ng-repeat="x in city|orderBy:'Name'" value="{{ x.Name }}">
+		                          {{ x.Name }}
 		                </option>
                     </select>
+                
                 </label>
                 <br>
                 <label class="item item-input item-select">
                     <div class="input-label">
                       Functional Area
                     </div>
-                    <select ng-model="myFunctionalArea"> 
-                      <option selected>Select Functional Area</option>
-                      <option value="{{ x.FunctionalArea }}"  ng-repeat="x in functionalarea|orderBy:'FunctionalArea'">{{ x.FunctionalArea }}                           </option>
+                    <select id="InternArea" ng-model="choice.myFunctionalArea">
+                        <option value="" selected>Select Your Functional Area</option>
+                        <option value="{{ x.Name }}"  ng-repeat="x in functionalArea|orderBy:'Name'">
+                                {{ x.Name }}                           
+                        </option>
                     </select>
-              </label>
+                
+                </label>
                 <br>
-                <label class="item item-input item-select">
-                    <div class="input-label">
-                      Category
-                    </div>
-                    <select>
-                      <option selected>Select Category</option>
-                      <option>Mumbai</option>
-                      <option>Pune</option>
-                    </select>
-                </label> 
-            
-           <ion-list>
-        <div ng-repeat="group in groups">
-          <ion-item class="item-stable"
-                    ng-click="toggleGroup(group)"
-                    ng-class="{active: isGroupShown(group)}">
-              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
-            &nbsp;
-            Group {{group.name}}
-          </ion-item>
-          <ion-item class="item-accordion"
-                    ng-repeat="item in group.items"
-                    ng-show="isGroupShown(group)">
-            {{item}}
-          </ion-item>
-        </div>
-      </ion-list>
-            <!--<div ng-switch="myFunctionalArea">
-                <div ng-switch-when="Multimedia">
-     <h1>Dogs</h1>
-     <p>Welcome to a world of dogs.</p>
-  </div>
-            </div>
-            -->
-            <!--
-            Select a topic:
-  <select ng-model="myVar">
-    <option value="">
-    <option value="dogs">Dogs
-    <option value="tuts">Tutorials
-    <option value="cars">Cars
-  </select>
-            <div ng-switch="myVar">
-  <div ng-switch-when="dogs">
-     <h1>Dogs</h1>
-     <p>Welcome to a world of dogs.</p>
-  </div>
-  <div ng-switch-when="tuts">
-     <h1>Tutorials</h1>
-     <p>Learn from examples.</p>
-  </div>
-  <div ng-switch-when="cars">
-     <h1>Cars</h1>
-     <p>Read about cars.</p>
-  </div>
-</div>-->
-                <div class="card" ng-click="findInternss()">
+                    
+                <ion-list>
+                    <ion-item class="item-stable"
+                              ng-click="toggleCategory()"
+                              ng-class="{active: isCategoryShown()}">
+                        
+                        <i class="icon" ng-class="isCategoryShown() ? 'ion-arrow-up-b' : 'ion-arrow-down-b'"></i>
+                        &nbsp; 
+                        Select Category
+                    </ion-item>  
+                
+                    <ion-item class="item-accordion" ng-show="isCategoryShown()">                        
+                        <div ng-switch="choice.myFunctionalArea">
+                            <div ng-switch-when="">
+                                <h1>No Functional Area Selected Please Select </h1>
+                            </div>
+                            <div ng-switch-when="IT and Computers">
+                               
+                                 <ion-radio ng-repeat="x in Category.ITCategory"
+                                            ng-model="choice.ITChoice"
+                                            ng-show="isCategoryShown()"
+                                            value="{{x.Name}}">
+                                     {{x.Name}}
+                                </ion-radio>
+  
+                                
+                            </div>
+
+                            <div ng-switch-when="Management">
+                                 <ion-radio ng-model="choice.ManagementChoice"
+                                            ng-repeat="x in Category.ManagementCategory"
+                                            ng-show="isCategoryShown()"
+                                            ng-value="'{{x.Name}}'">
+                                     {{x.Name}}
+                                </ion-radio>
+                            </div>
+                            <div ng-switch-when="Multimedia">
+                                 <ion-radio ng-model="choice.MultimediaChoice"
+                                            ng-repeat="x in Category.MultimediaCategory"
+                                            ng-show="isCategoryShown()"
+                                            ng-value="'{{x.Name}}'">
+                                     {{x.Name}}
+                                </ion-radio>
+                            </div>
+
+                        </div>
+                    </ion-item>
+                    
+                </ion-list>
+        
+                <div class="card" ng-click="findInternss(choice)" >
                     <div class="row">
                         <div class="col"><h4>Find Your Dream Internship</h4></div>
                     </div>
+                    
                 </div>
                 
+                </form>
+        
             
         </div>
         

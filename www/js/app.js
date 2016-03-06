@@ -76,49 +76,169 @@ angular.module('InternKatta', ['ionic'])
   $scope.onPop = function($event) {
     $scope.popover.show($event);
   };
-      $http.get("jsondata/city.json")
-      .success(function (response) 
-      {
-       $scope.city = response;
-      });  
-      $http.get("jsondata/functionalarea.json")
-      .success(function (response) 
-      {
-       $scope.functionalarea = response;
-      });  
-      $http.get("jsondata/category.json")
-      .success(function (response) 
-      {
-       $scope.category = response;
-      });  
+    
+    
+    $scope.city = [
+                    {
+                        "ID":"1",
+                        "Name":"Mumbai"
+                    },
+                    {
+                        "ID":"2",
+                        "Name":"Pune"
+                    }
+                  ];
+    
+    $scope.functionalArea = [
+                                {
+                                    "ID":"1",
+                                    "Name":"IT and Computers"
+                                },
+                                {
+                                    "ID":"2",
+                                    "Name":"Management"
+                                },
+                                {
+                                    "ID":"3",
+                                    "Name":"Multimedia"
+                                }
+                            ];
+    
+    $scope.Category = {
+                    "ITCategory" : 
+                    [
+                          {
+                            "ID":"1",
+                            "Name":"Php Developer"
+                          },
+                          {
+                            "ID":"2",
+                            "Name":"Java Developer"
+                          }
+                          ,
+                          {
+                            "ID":"3",
+                            "Name":"C/C++ Developer"
+                          },
+                          {
+                            "ID":"4",
+                            "Name":"Dot Net Developer"
+                          },
+                          {
+                            "ID":"5",
+                            "Name":"UI/UX Developer"
+                          },
+                          {
+                            "ID":"6",
+                            "Name":"Content Management"
+                          },
+                          {
+                            "ID":"7",
+                            "Name":"Software Testing"
+                          },
+                          {
+                            "ID":"8",
+                            "Name":"Digital Marketing"
+                          },
+                          {
+                            "ID":"9",
+                            "Name":"IOS Developer"
+                          },
+                          {
+                            "ID":"10",
+                            "Name":"Android Developer"
+                          },
+                          {
+                            "ID":"11",
+                            "Name":"Database Developer"
+                          },
+                          {
+                            "ID":"12",
+                            "Name":"Web Developer"
+                          }
+                    ],               
+                    "ManagementCategory" :
+                    [
+                          {
+                            "ID":"1",
+                            "Name":"Finance"
+                          },
+                          {
+                            "ID":"2",
+                            "Name":"Marketing"
+                          },
+                          {
+                            "ID":"3",
+                            "Name":"Sales"
+                          },
+                          {
+                            "ID":"4",
+                            "Name":"Operation"
+                          },
+                          {
+                            "ID":"5",
+                            "Name":"HR"
+                          },
+                          {
+                            "ID":"6",
+                            "Name":"Banking"
+                          }
+                    ],        
+                    "MultimediaCategory" :
+                    [
+                          {
+                            "ID":"1",
+                            "Name":"Graphic Designer"
+                          },
+                          {
+                            "ID":"2",
+                            "Name":"Animation Maker"
+                          },
+                          {
+                            "ID":"3",
+                            "Name":"Photography"
+                          },
+                          {
+                            "ID":"4",
+                            "Name":"Video Making/Editing"
+                          },
+                          {
+                            "ID":"5",
+                            "Name":"Adobe Photoshop/CoralDraw/Illustrator"
+                          }
+                        ]
+                    };
+                
 
-    $scope.groups = [];
-  for (var i=0; i<10; i++) {
-    $scope.groups[i] = {
-      name: i,
-      items: [],
-      show: false
-    };
-    for (var j=0; j<3; j++) {
-      $scope.groups[i].items.push(i + '-' + j);
+    
+    
+    var show = false;
+    $scope.toggleCategory = function()
+    {
+       show = !show;       
     }
-  }
-  
-  /*
-   * if given group is the selected group, deselect it
-   * else, select the given group
-   */
-  $scope.toggleGroup = function(group) {
+    
+    $scope.isCategoryShown = function()
+    {        
+        return show;
+    }
+    
+    
+    
+ /* $scope.toggleGroup = function(group) {
     group.show = !group.show;
   };
   $scope.isGroupShown = function(group) {
     return group.show;
   };
-    
+    */
+    $scope.choice = {};
         $scope.frm = {};
 
       $scope.findInternss = function($param){
-          alert("Btn Clicked");
+          
+        alert($scope.choice.ITChoice+" "+$scope.choice.myFunctionalArea+" "+$scope.choice.CityName);
+          //alert("Btn Clicked " + document.getElementById("InternCity").value+" "+document.getElementById("InternArea").value);
           
     /*
         var optionsCSV = '';
@@ -138,10 +258,6 @@ angular.module('InternKatta', ['ionic'])
         alert($param.CityName+' '+$param.FunctionalArea+' '+optionsCSV);
         
         window.localStorage['InternshipOptionCity'] = $param.CityName;
-        window.localStorage['InternshipOptionFunctionArea'] = $param.FunctionalArea;
-        window.localStorage['InternshipOptionCategory'] = optionsCSV;
-        
-        if($param.CityName == null || $param.FunctionalArea == null || optionsCSV=="")
         {
             alert("Please Select Inputs For the Result");
         }
