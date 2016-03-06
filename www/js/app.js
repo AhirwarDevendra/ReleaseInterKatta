@@ -69,6 +69,20 @@ angular.module('InternKatta', ['ionic'])
 .controller('HomeController',['$scope',function($scope){
 
   console.log("Controller Called");
+    
+$scope.myCheck ="false";
+$scope.showIntern = function()
+{
+    $scope.myCheck = !$scope.myCheck;
+    $scope.myCheck1 = "false";
+}
+
+$scope.myCheck1 ="false";
+$scope.showInternship = function()
+{
+    $scope.myCheck = "false";
+    $scope.myCheck1 = !$scope.myCheck1;
+}
 }])
 
 
