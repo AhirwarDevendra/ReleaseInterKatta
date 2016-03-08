@@ -71,22 +71,106 @@ angular.module('InternKatta', ['ionic','firebase'])
   };
 }])
 
-.controller('HomeController',['$scope',function($scope){
+.controller('HomeController',['$scope','$location', '$anchorScroll',function($scope,$location, $anchorScroll){
 
-  console.log("Controller Called");
+console.log("Controller Called");
     
-$scope.myCheck ="false";
+$scope.myCheck = false;
+       
+
+var AppInfo = {
+                  "Internship":
+                  {
+                    "Title": "Why You Need To Do Internship" ,
+                    "Description":
+                            [
+                              {
+                                "Line":"Internships enable you take your career plan for a test drive."  
+                              },
+                              {
+                                "Line":"Test-drive your knowledge and skills."  
+                              },
+                              {
+                                "Line":"You’ll gain confidence."
+                              },
+                              {
+                                "Line":"You’ll build motivation and work habits."
+                              },
+                              {
+                                "Line":"Last but Not to Least, You may get paid more when you graduate if you’ve done one or more internships."
+                              }
+                            ]
+                  },
+                  "InternKatta":
+                  {
+                    "Title": "Why You Should Go With InternKatta" ,
+                    "Description":
+                            [
+                              {
+                                "Line":"About InternKatta"
+                              },
+                              {
+                                "Line":"InternKatta is a place which helps students to find an internships what they want."  
+                              },
+                              {
+                                "Line":"We provide best internship places with an Easy Access and helps them to explore their Academics Knowledge with best Internships Programs."  
+                              },
+                              {
+                                "Line":""
+                              },
+                              {
+                                "Line":"Our Vision and Mision"
+                              },
+                              {
+                                "Line":"To Give a Better and Better Option of Internship Program for Student with an Easy Access"
+                              },
+                              
+                            ]
+                  }
+            };
+   
+
+              /*"<ul><li>Internships enable you take your career plan for a test drive.</li><li>Test-drive your knowledge and skills.</li><li>Strengthen your CV.</li><li>You’ll gain confidence.</li><li>You’ll build motivation and work habits.</li><li>Last but Not to Least</li><li>You may get paid more when you graduate if you’ve done one or more internships.</li></ul>"
+                */    
+var InternKattaInfo = "InternKatta";
+var InternshipInfo = "Internship";  
+    
 $scope.showIntern = function()
 {
-    $scope.myCheck = !$scope.myCheck;
-    $scope.myCheck1 = "false";
+    
+    if(!$scope.myCheck)
+    {
+      $scope.myCheck = true;
+    }
+    
+    $scope.InfoTitle = AppInfo.InternKatta.Title;
+    $scope.InfoData = AppInfo.InternKatta.Description;
+    console.log($scope.InfoTitle+" "+$scope.InfoData[0].Line);
+
+    $location.hash('xyza');
+
+        // call $anchorScroll()
+    $anchorScroll();
 }
 
-$scope.myCheck1 ="false";
+
 $scope.showInternship = function()
 {
-    $scope.myCheck = "false";
-    $scope.myCheck1 = !$scope.myCheck1;
+    if(!$scope.myCheck)
+    {
+        $scope.myCheck = true;    
+    }
+    
+    $scope.InfoTitle = AppInfo.Internship.Title;
+    $scope.InfoData = AppInfo.Internship.Description;
+    console.log($scope.InfoTitle+" "+$scope.InfoData[0].Line);
+}
+
+$scope.closeModel = function()
+{
+
+  $scope.myCheck = false; 
+  
 }
 }])
 
@@ -245,6 +329,7 @@ $scope.showInternship = function()
     $scope.ShowIT = false;
     $scope.ShowMngt = false;
     $scope.ShowMedia = false;
+   
     $scope.AreaChange = function()
     {
         //alert($scope.choice.myFunctionalArea); 

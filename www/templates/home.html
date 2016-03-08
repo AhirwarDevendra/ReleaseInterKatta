@@ -46,14 +46,68 @@
             </div>
             
             
-            <div class="card xyz" ng-hide="myCheck">
-                <p class="showtxt"><strong>Internkatta</strong></p>
+            <!--<div class="card animated" ng-class="myCheck ? 'fadeInDown' : 'fadeOutUp'">
+               <div class="list">
+
+                <a class="item item-icon-left" ng-click="closeModel()">
+                    <i class="icon ion-close-circled"></i>
+                    About {{InfoData}}
+                </a>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+              
+               
+                
+            </div>-->
+            <div class="card xyz" ng-show="myCheck">
+                    <a class="item item-icon-left" ng-click="closeModel()">
+                    <i class="icon ion-close-circled"></i>
+                    {{InfoTitle}}
+                </a>
+                
+                <div id="xyza" > 
+                    <ul>
+                        <li ng-repeat="x in InfoData">
+                            {{x.Line}}
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-            <div class="card xyz" ng-hide="myCheck1">
+            <style>
+                
+
+                @keyframes myChange {
+                      from {
+                          height: 100px;
+                      } to {
+                          height: 0;
+                      }
+                    }
+
+                    .xyz {
+                      height: 100%;
+                      background-color: #8a6de9;
+                    }
+
+                    div.ng-hide {
+                      animation: 0.5s myChange;
+                    }
+
+                    #xyza
+                    {
+                        color: #fff;
+                        margin : 10px;
+
+
+                    }
+
+                    li
+                    {
+                        text-align: left;
+                    }
+            </style>
+            <!--<div class="card animated" ng-class="myCheck1 ? 'fadeInDown' : 'fadeOutUp'">
                 <p class="showtxt"><strong>Internship</strong></p>
             </div>
-            
             
             <style>
                 .xyz {
@@ -79,6 +133,7 @@
                     font-size: 20px;
                 }
             </style>
+            -->
             
         </div>    
        
