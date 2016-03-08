@@ -242,16 +242,61 @@ $scope.showInternship = function()
         return show;
     }
     
-        if($scope.SelectArea=="IT and Computers")
+    $scope.ShowIT = false;
+    $scope.ShowMngt = false;
+    $scope.ShowMedia = false;
+    $scope.AreaChange = function()
+    {
+        //alert($scope.choice.myFunctionalArea); 
+        if($scope.choice.myFunctionalArea == "IT and Computers")
         {
-            $scope.ShowArea = false;
+            $scope.ShowIT = true;
+            $scope.ShowMngt = false;
+            $scope.ShowMedia = false;
+        }
+        else if($scope.choice.myFunctionalArea == "Management")
+        {
+            $scope.ShowIT = false;
+            $scope.ShowMngt = true;
+            $scope.ShowMedia = false;
+        }
+        else if($scope.choice.myFunctionalArea == "Multimedia")
+        {
+            $scope.ShowIT = false;
+            $scope.ShowMngt = false;
+            $scope.ShowMedia = true;
         }
         else
         {
-                $scope.ShowArea = true;
+            $scope.ShowIT = false;
+            $scope.ShowMngt = false;
+            $scope.ShowMedia = false;     
         }
+        //$scope.ShowArea = !$scope.ShowArea;
+    }
     
-    alert($scope.SelectArea);
+    $scope.myCategoryCheck = true;
+    
+    $scope.showCateg = function()
+    {
+        $scope.myCategoryCheck = !$scope.myCategoryCheck;
+    }
+    
+    $scope.myCategoryCheck1 = true;
+    
+    $scope.showCateg1 = function()
+    {
+        $scope.myCategoryCheck1 = !$scope.myCategoryCheck1;
+    }
+    
+    $scope.myCategoryCheck2 = true;
+    
+    $scope.showCateg2 = function()
+    {
+        $scope.myCategoryCheck2 = !$scope.myCategoryCheck2;
+    }
+    
+   // alert($scope.SelectArea);
     
  /* $scope.toggleGroup = function(group) {
     group.show = !group.show;

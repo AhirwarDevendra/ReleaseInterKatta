@@ -28,7 +28,7 @@
                     <div class="input-label">
                       Functional Area
                     </div>
-                    <select ng-model="choice.myFunctionalArea" ng-model="SelectArea">
+                    <select ng-model="choice.myFunctionalArea" ng-change="AreaChange()">
                         <option value="" selected>Select Your Functional Area</option>
                         <option value="{{ x.Name }}"  ng-repeat="x in functionalArea|orderBy:'Name'">
                                 {{ x.Name }}                           
@@ -37,9 +37,56 @@
                 
                 </label>
                 <br>
-                
+                {{SelectArea}}
+                <div class="card animated"  ng-class="ShowIT ? 'bounceInLeft' : 'bounceOutRight'" ng-click="showCateg()">
+                    IT and Computers    
+                    <div class="xyz" ng-hide="myCategoryCheck">
+                    xyxyy<br>
+                    ibuyhiu<br>
+                    iuhiubib<br>
+                    kbdiubs<br>
+                    </div>
+                </div>
                     
-                   <div ng-switch="choice.myFunctionalArea">
+                <div class="card animated" ng-class="ShowMngt ? 'bounceInLeft' : 'bounceOutRight'" ng-click="showCateg1()">
+                    Management
+                    <div class="xyz" ng-hide="myCategoryCheck1">
+                    xyxyy<br>
+                    ibuyhiu<br>
+                    iuhiubib<br>
+                    kbdiubs<br>
+                    </div>
+                </div>
+                    
+                <div class="card animated" ng-class="ShowMedia ? 'bounceInLeft' : 'bounceOutRight'" ng-click="showCateg2()">
+                    Multimedia
+                    <div class="xyz" ng-hide="myCategoryCheck2">
+                    xyxyy<br>
+                    ibuyhiu<br>
+                    iuhiubib<br>
+                    kbdiubs<br>
+                    </div>
+                </div>
+                    
+                    <style>
+                        .xyz {
+                        transition: all linear 0.5s;
+                       
+                        height: 100px;
+                        width: 95%;
+                        position: relative;
+                        top: 0;
+                        left: 0;
+                    }
+                        .ng-hide {
+                        height: 0;
+                        width: 0;
+                        background-color: transparent;
+                        top:-200px;
+                        left: 200px;
+                    }
+                    </style>
+                   <!--<div ng-switch="choice.myFunctionalArea">
                         <div ng-switch-when="">
                             <h1>No Functional Area Selected Please Select </h1>
                         </div>
@@ -52,7 +99,7 @@
                         <div ng-switch-when="Multimedia" class="card animated" ng-class="(choice.myFunctionalArea == 'Multimedia') ? 'bounceInLeft' : 'bounceOutRight'">
                             <h1>Multimedia Functional Area Selected </h1>
                         </div>
-                    </div>
+                    </div>-->
                 
                 <!--<ion-list>
                     <ion-item class="item-stable"
