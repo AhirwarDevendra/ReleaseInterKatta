@@ -173,6 +173,8 @@ $scope.closeModel = function()
 {
 
   $scope.myCheck = false; 
+    $location.hash('xyzb');
+    $anchorScroll();
   
 }
 }])
