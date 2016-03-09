@@ -388,8 +388,11 @@ var timer;
         }
         else
         {
+            //console.log($scope.choice.myFunctionalArea);
+            $scope.choice.myFunctionalArea = $scope.choice.myFunctionalArea;
             $scope.ShowCategory = false;
             $scope.SelectTitle = "";
+            
             /*$scope.ShowIT = false;
             $scope.ShowMngt = false;
             $scope.ShowMedia = false;*/     
