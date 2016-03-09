@@ -73,7 +73,7 @@ angular.module('InternKatta', ['ionic','firebase'])
   };
 }])
 
-.controller('HomeController',['$scope','$location', '$anchorScroll',function($scope,$location, $anchorScroll){
+.controller('HomeController',['$scope','$location', '$anchorScroll','$timeout' ,function($scope,$location, $anchorScroll,$timeout){
 
 console.log("Controller Called");
     
@@ -169,12 +169,16 @@ $scope.showInternship = function()
     $anchorScroll();
 }
 
+var timer;
 $scope.closeModel = function()
 {
 
   $scope.myCheck = false; 
-    $location.hash('xyzb');
-    $anchorScroll();
+     timer = $timeout(function () {
+            $location.hash('xyzb');
+            $anchorScroll();
+        }, 700);
+    
   
 }
 }])
