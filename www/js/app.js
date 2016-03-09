@@ -132,10 +132,11 @@ var AppInfo = {
             };
    
 
-              /*"<ul><li>Internships enable you take your career plan for a test drive.</li><li>Test-drive your knowledge and skills.</li><li>Strengthen your CV.</li><li>You’ll gain confidence.</li><li>You’ll build motivation and work habits.</li><li>Last but Not to Least</li><li>You may get paid more when you graduate if you’ve done one or more internships.</li></ul>"
-                */    
+                 
 var InternKattaInfo = "InternKatta";
 var InternshipInfo = "Internship";  
+
+var timer;
     
 $scope.showIntern = function()
 {
@@ -169,15 +170,15 @@ $scope.showInternship = function()
     $anchorScroll();
 }
 
-var timer;
+
 $scope.closeModel = function()
 {
 
   $scope.myCheck = false; 
-     timer = $timeout(function () {
-            $location.hash('xyzb');
+    timer = $timeout(function () {
+           $location.hash('xyzb');
             $anchorScroll();
-        }, 700);
+        }, 500);
     
   
 }
@@ -190,6 +191,7 @@ $scope.closeModel = function()
   };
     
     
+var timer;
     $scope.city = [
                     {
                         "ID":"1",
@@ -335,6 +337,7 @@ $scope.closeModel = function()
         return show;
     }
     
+    $scope.ShowCategory = false;
     $scope.ShowIT = false;
     $scope.ShowMngt = false;
     $scope.ShowMedia = false;
@@ -344,27 +347,52 @@ $scope.closeModel = function()
         //alert($scope.choice.myFunctionalArea); 
         if($scope.choice.myFunctionalArea == "IT and Computers")
         {
-            $scope.ShowIT = true;
+            
+            
+            $scope.ShowCategory = false;
+             timer = $timeout(function () {
+                 $scope.SelectTitle = $scope.functionalArea[0].Name;
+                    console.log($scope.SelectTitle);
+                    $scope.ShowCategory = true;
+                        }, 400);
+            
+            /*$scope.ShowIT = true;
             $scope.ShowMngt = false;
-            $scope.ShowMedia = false;
+            $scope.ShowMedia = false;*/
         }
         else if($scope.choice.myFunctionalArea == "Management")
         {
-            $scope.ShowIT = false;
+            
+             $scope.ShowCategory = false;
+             timer = $timeout(function () {
+                 $scope.SelectTitle = $scope.functionalArea[1].Name;
+            console.log($scope.SelectTitle);
+                    $scope.ShowCategory = true;
+                        }, 400);
+            /*$scope.ShowIT = false;
             $scope.ShowMngt = true;
-            $scope.ShowMedia = false;
+            $scope.ShowMedia = false;*/
         }
         else if($scope.choice.myFunctionalArea == "Multimedia")
         {
-            $scope.ShowIT = false;
+            
+             $scope.ShowCategory = false;
+             timer = $timeout(function () {
+                 $scope.SelectTitle = $scope.functionalArea[2].Name;
+            console.log($scope.SelectTitle);
+                    $scope.ShowCategory = true;
+                        }, 400);
+            /*$scope.ShowIT = false;
             $scope.ShowMngt = false;
-            $scope.ShowMedia = true;
+            $scope.ShowMedia = true;*/
         }
         else
         {
-            $scope.ShowIT = false;
+            $scope.ShowCategory = false;
+            $scope.SelectTitle = "";
+            /*$scope.ShowIT = false;
             $scope.ShowMngt = false;
-            $scope.ShowMedia = false;     
+            $scope.ShowMedia = false;*/     
         }
         //$scope.ShowArea = !$scope.ShowArea;
     }
