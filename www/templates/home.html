@@ -46,20 +46,8 @@
             </div>
             
             
-            <!--<div class="card animated" ng-class="myCheck ? 'fadeInDown' : 'fadeOutUp'">
-               <div class="list">
-
-                <a class="item item-icon-left" ng-click="closeModel()">
-                    <i class="icon ion-close-circled"></i>
-                    About {{InfoData}}
-                </a>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
-              
-               
-                
-            </div>-->
-            <div class="card xyz" ng-show="myCheck">
-                    <a class="item item-icon-left" ng-click="closeModel()">
+        <div class="card animated xyz" ng-class="myCheck ? 'fadeInUp' : 'fadeOutDown'">
+               <a class="item item-icon-left" ng-click="closeModel()">
                     <i class="icon ion-close-circled"></i>
                     {{InfoTitle}}
                 </a>
@@ -72,6 +60,20 @@
                     </ul>
                 </div>
             </div>
+            <!--<div class="card xyz" ng-show="myCheck">
+                    <a class="item item-icon-left" ng-click="closeModel()">
+                    <i class="icon ion-close-circled"></i>
+                    {{InfoTitle}}
+                </a>
+                
+                <div id="xyza" > 
+                    <ul>
+                        <li ng-repeat="x in InfoData">
+                            {{x.Line}}
+                        </li>
+                    </ul>
+                </div>
+            </div>-->
             <style>
                 
 

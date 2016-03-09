@@ -3,6 +3,8 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
+(function(angular) {
+  'use strict';
 angular.module('InternKatta', ['ionic','firebase'])
 
 .run(function($ionicPlatform) {
@@ -137,19 +139,17 @@ var InternshipInfo = "Internship";
     
 $scope.showIntern = function()
 {
-    
-    if(!$scope.myCheck)
+   if(!$scope.myCheck)
     {
       $scope.myCheck = true;
     }
+    
     
     $scope.InfoTitle = AppInfo.InternKatta.Title;
     $scope.InfoData = AppInfo.InternKatta.Description;
     console.log($scope.InfoTitle+" "+$scope.InfoData[0].Line);
 
     $location.hash('xyza');
-
-        // call $anchorScroll()
     $anchorScroll();
 }
 
@@ -164,6 +164,9 @@ $scope.showInternship = function()
     $scope.InfoTitle = AppInfo.Internship.Title;
     $scope.InfoData = AppInfo.Internship.Description;
     console.log($scope.InfoTitle+" "+$scope.InfoData[0].Line);
+    
+    $location.hash('xyza');
+    $anchorScroll();
 }
 
 $scope.closeModel = function()
@@ -472,3 +475,4 @@ $scope.closeModel = function()
 .controller('InternshiplistController',['$scope','$ionicSideMenuDelegate','$firebaseArray',function($scope, $ionicSideMenuDelegate,$firebaseArray) {
         console.log("List Controller");
 }])
+})(window.angular);
