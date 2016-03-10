@@ -36,9 +36,81 @@
                     </select>
                 
                 </label>
-                <div class="card animated"  ng-class="ShowCategory ? 'bounceInLeft' : 'bounceOutRight'">
-                    {{SelectTitle}}
-                </div>
+                    <br>
+                <div class="animated"  ng-class="ShowCategory ? 'bounceInLeft' : 'bounceOutRight'" style="padding-bottom:2px;">
+                   <!--<a class="item item-icon-left" ng-click="showCateg()">
+                    <i class="icon ion-plus"></i>{{SelectTitle}}</a> -->
+                    <!--<div class="row">
+                        <div class="col">
+                            <button class="button button-block button-stable icon-left" ng-class="ShowIT? 'ion-ios-arrow-up' : 'ion-ios-arrow-down'" ng-click="showCateg()">
+                        {{SelectTitle}}
+                            </button>
+                            
+                            <div id="xyza" class="animated"  ng-class="ShowIT ? 'bounceInUp' : 'bounceOutDown'" ng-show="ShowIT">
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                
+                            </div>
+                        </div>
+                    </div>-->
+                    
+                    <ion-list>
+                        
+                        <ion-item class="item-stable"
+                              ng-click="toggleCategory()"
+                              ng-class="{active: isCategoryShown()}">
+                        
+                        <i class="icon" ng-class="isCategoryShown() ? 'ion-arrow-up-b' : 'ion-arrow-down-b'"></i>
+                        &nbsp; 
+                        {{SelectTitle}} {{item}}
+                    </ion-item> 
+                        <ion-item class="item-accordion"  
+                                  ng-repeat="item in SelectCategory"
+                                    ng-show="isCategoryShown()">
+                            
+                            
+                            
+                            <ion-radio value="{{item.Name}}">
+                                 <span style="margin-top:15px;">{{item.Name}}</span>
+                                    &nbsp;&nbsp;&nbsp;
+                                    <img src="{{item.Path}}" style="width:100px; height:50px; float: right;"/>
+                            </ion-radio>
+                               
+            
+                        </ion-item>
+                        
+       <!-- <div ng-repeat="group in groups">
+          <ion-item class="item-stable"
+                    ng-click="toggleGroup(group)"
+                    ng-class="{active: isGroupShown(group)}">
+              <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i>
+            &nbsp;
+            {{SelectTitle}}
+          </ion-item>
+            //comment<div  ng-show="isGroupShown(group)">
+                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+                                <img src="../img/android.svg" style="width:100px; height:50px;"/>
+            </div> comment
+            
+          <ion-item class="item-accordion"                    
+                    ng-show="isGroupShown(group)">
+              <div class="row" ng-repeat="item in group.items"> 
+                <div class="col" >{{item}}</div>
+              </div>
+            
+          </ion-item>
+        </div>-->
+      </ion-list>
+                    
+                   
                 <!--<div class="card animated"  ng-class="ShowIT ? 'bounceInLeft' : 'bounceOutRight'" ng-click="showCateg()">
                     IT and Computers    
                     
@@ -86,6 +158,14 @@
                         background-color: transparent;
                         top:-200px;
                         left: 200px;
+                    }
+                        
+                        #xyza
+                    {
+                        color: #fff;
+                        
+                        
+
                     }
                     </style>
                    <!--<div ng-switch="choice.myFunctionalArea">
@@ -159,7 +239,7 @@
                     </ion-item>
                     
                 </ion-list>-->
-        
+                    </div>
                 <div class="card" ng-click="findInternss(choice)" >
                     <div class="row">
                         <div class="col"><h4>Find Your Dream Internship</h4></div>

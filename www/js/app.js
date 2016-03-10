@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 (function(angular) {
   'use strict';
-angular.module('InternKatta', ['ionic','firebase'])
+angular.module('InternKatta', ['ionic','firebase','ngAnimate'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -75,6 +75,10 @@ angular.module('InternKatta', ['ionic','firebase'])
 
 .controller('HomeController',['$scope','$location', '$anchorScroll','$timeout' ,function($scope,$location, $anchorScroll,$timeout){
 
+var timer;
+
+$timeout.cancel(timer);
+    
 console.log("Controller Called");
     
 $scope.myCheck = false;
@@ -136,7 +140,7 @@ var AppInfo = {
 var InternKattaInfo = "InternKatta";
 var InternshipInfo = "Internship";  
 
-var timer;
+
     
 $scope.showIntern = function()
 {
@@ -194,6 +198,40 @@ $scope.closeModel = function()
     $scope.popover.show($event);
   };
     
+    $scope.items = [];
+    $scope.groups = [];
+  /*for (var i=0; i<1; i++) {
+    $scope.groups[i] = {
+      name: i,
+      items: []
+    };
+    for (var j=0; j<20; j++) {
+      $scope.items.push(i + '-' + j);
+    }
+  }*/
+  for (var j=0; j<20; j++) {
+      $scope.items[j] = j;
+      console.log($scope.items[j]);
+    }
+    console.log($scope.items.length);
+    
+  /*
+   * if given group is the selected group, deselect it
+   * else, select the given group
+   */
+    
+
+  $scope.toggleGroup = function(group) {
+    if ($scope.isGroupShown(group)) {
+      $scope.shownGroup = null;
+    } else {
+      $scope.shownGroup = group;
+    }
+  };
+  $scope.isGroupShown = function(group) {
+    return $scope.shownGroup === group;
+  };
+  
     
 var timer;
     $scope.city = [
@@ -227,52 +265,64 @@ var timer;
                     [
                           {
                             "ID":"1",
-                            "Name":"Php Developer"
+                            "Name":"Php Developer",
+                            "Path":"../img/php.svg"  
                           },
                           {
                             "ID":"2",
-                            "Name":"Java Developer"
+                            "Name":"Java Developer",
+                            "Path":"../img/java.svg"  
                           }
                           ,
                           {
                             "ID":"3",
-                            "Name":"C/C++ Developer"
+                            "Name":"C/C++ Developer",
+                            "Path":"../img/cplusplus.svg"
                           },
                           {
                             "ID":"4",
-                            "Name":"Dot Net Developer"
+                            "Name":"Dot Net Developer",
+                            "Path":"../img/dot-net.svg"
                           },
                           {
                             "ID":"5",
-                            "Name":"UI/UX Developer"
+                            "Name":"UI/UX Developer",
+                            "Path":"../img/css3.svg"
                           },
                           {
                             "ID":"6",
-                            "Name":"Content Management"
+                            "Name":"Content Management",
+                            "Path":"../img/android.svg"
                           },
                           {
                             "ID":"7",
-                            "Name":"Software Testing"
+                            "Name":"Software Testing",
+                            "Path":"../img/android.svg"
                           },
                           {
                             "ID":"8",
-                            "Name":"Digital Marketing"
+                            "Name":"Digital Marketing",
+                            "Path":"../img/phone-gap.svg"
                           },
                           {
                             "ID":"9",
-                            "Name":"IOS Developer"
+                            "Name":"IOS Developer",
+                            "Path":"../img/apple.svg"
                           },
                           {
                             "ID":"10",
-                            "Name":"Android Developer"
+                            "Name":"Android Developer",
+                            "Path":"../img/android.svg"
                           },
                           {
                             "ID":"11",
-                            "Name":"Database Developer"
+                            "Name":"Database Developer",
+                            "Path":"../img/database.svg"
                           },
                           {
                             "ID":"12",
-                            "Name":"Web Developer"
+                            "Name":"Web Developer",
+                            "Path":"../img/wordpress.svg"
                           }
                     ],               
                     "ManagementCategory" :
@@ -356,6 +406,8 @@ var timer;
             $scope.ShowCategory = false;
              timer = $timeout(function () {
                  $scope.SelectTitle = $scope.functionalArea[0].Name;
+                 $scope.SelectCategory = $scope.Category.ITCategory;
+                 show = false;
                     console.log($scope.SelectTitle);
                     $scope.ShowCategory = true;
                         }, 400);
@@ -371,6 +423,7 @@ var timer;
              $scope.ShowCategory = false;
              timer = $timeout(function () {
                  $scope.SelectTitle = $scope.functionalArea[1].Name;
+                 show = false;
             console.log($scope.SelectTitle);
                     $scope.ShowCategory = true;
                         }, 400);
@@ -385,6 +438,7 @@ var timer;
              $scope.ShowCategory = false;
              timer = $timeout(function () {
                  $scope.SelectTitle = $scope.functionalArea[2].Name;
+                 show = false;
             console.log($scope.SelectTitle);
                     $scope.ShowCategory = true;
                         }, 400);
@@ -411,7 +465,7 @@ var timer;
     
     $scope.showCateg = function()
     {
-        $scope.myCategoryCheck = !$scope.myCategoryCheck;
+        $scope.ShowIT = !$scope.ShowIT;
     }
     
     $scope.myCategoryCheck1 = true;
