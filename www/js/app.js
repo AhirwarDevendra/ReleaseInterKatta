@@ -266,63 +266,63 @@ var timer;
                           {
                             "ID":"1",
                             "Name":"Php Developer",
-                            "Path":"../img/php.svg"  
+                            "Path":"img/php.svg"  
                           },
                           {
                             "ID":"2",
                             "Name":"Java Developer",
-                            "Path":"../img/java.svg"  
+                            "Path":"img/java.svg"  
                           }
                           ,
                           {
                             "ID":"3",
                             "Name":"C/C++ Developer",
-                            "Path":"../img/cplusplus.svg"
+                            "Path":"img/cplusplus.svg"
                           },
                           {
                             "ID":"4",
                             "Name":"Dot Net Developer",
-                            "Path":"../img/dot-net.svg"
+                            "Path":"img/dot-net.svg"
                           },
                           {
                             "ID":"5",
                             "Name":"UI/UX Developer",
-                            "Path":"../img/css3.svg"
+                            "Path":"img/css3.svg"
                           },
                           {
                             "ID":"6",
                             "Name":"Content Management",
-                            "Path":"../img/android.svg"
+                            "Path":"img/android.svg"
                           },
                           {
                             "ID":"7",
                             "Name":"Software Testing",
-                            "Path":"../img/android.svg"
+                            "Path":"img/android.svg"
                           },
                           {
                             "ID":"8",
                             "Name":"Digital Marketing",
-                            "Path":"../img/phone-gap.svg"
+                            "Path":"img/phone-gap.svg"
                           },
                           {
                             "ID":"9",
                             "Name":"IOS Developer",
-                            "Path":"../img/apple.svg"
+                            "Path":"img/apple.svg"
                           },
                           {
                             "ID":"10",
                             "Name":"Android Developer",
-                            "Path":"../img/android.svg"
+                            "Path":"img/android.svg"
                           },
                           {
                             "ID":"11",
                             "Name":"Database Developer",
-                            "Path":"../img/database.svg"
+                            "Path":"img/database.svg"
                           },
                           {
                             "ID":"12",
                             "Name":"Web Developer",
-                            "Path":"../img/wordpress.svg"
+                            "Path":"img/wordpress.svg"
                           }
                     ],               
                     "ManagementCategory" :
