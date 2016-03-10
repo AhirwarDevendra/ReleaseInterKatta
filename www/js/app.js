@@ -140,6 +140,8 @@ var timer;
     
 $scope.showIntern = function()
 {
+    $timeout.cancel(timer);
+    
    if(!$scope.myCheck)
     {
       $scope.myCheck = true;
@@ -157,6 +159,8 @@ $scope.showIntern = function()
 
 $scope.showInternship = function()
 {
+    $timeout.cancel(timer);
+    
     if(!$scope.myCheck)
     {
         $scope.myCheck = true;    
@@ -347,7 +351,7 @@ var timer;
         //alert($scope.choice.myFunctionalArea); 
         if($scope.choice.myFunctionalArea == "IT and Computers")
         {
-            
+            $timeout.cancel(timer);
             
             $scope.ShowCategory = false;
              timer = $timeout(function () {
@@ -362,6 +366,7 @@ var timer;
         }
         else if($scope.choice.myFunctionalArea == "Management")
         {
+            $timeout.cancel(timer);
             
              $scope.ShowCategory = false;
              timer = $timeout(function () {
@@ -375,6 +380,7 @@ var timer;
         }
         else if($scope.choice.myFunctionalArea == "Multimedia")
         {
+                $timeout.cancel(timer);
             
              $scope.ShowCategory = false;
              timer = $timeout(function () {
@@ -388,6 +394,7 @@ var timer;
         }
         else
         {
+            $timeout.cancel(timer);
             //console.log($scope.choice.myFunctionalArea);
             $scope.choice.myFunctionalArea = $scope.choice.myFunctionalArea;
             $scope.ShowCategory = false;
