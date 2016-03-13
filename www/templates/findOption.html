@@ -69,16 +69,31 @@
                         {{SelectTitle}} {{item}}
                     </ion-item> 
                         <ion-item class="item-accordion"  
-                                  ng-repeat="item in SelectCategory"
+                                  
                                     ng-show="isCategoryShown()">
                             
                             
+                                <div class="row" style="flex-wrap: wrap">
+                                    
+                                        <div class="col col-50" ng-repeat="item in SelectCategory">
+                                        
+                                            <ion-radio value="{{item.Name}}">
+                                                <img src="{{item.Path}}" style="width:140px; height:70px;"/>  <br>
+                                                <span style="margin-left:5px;margin-right:5px;">{{item.Name}}</span>
+                                            </ion-radio>                                  
+                                            
+                                        
+                                        </div>                                       
+                                    
+                                    
+                                    
+                            </div>
                             
-                            <ion-radio value="{{item.Name}}">
+                            <!--<ion-radio value="{{item.Name}}">
                                  <span style="float: left;">{{item.Name}}</span>
                                     &nbsp;&nbsp;&nbsp;
                                     <img src="{{item.Path}}" style="width:140px; height:70px; float: right;"/>
-                            </ion-radio>
+                            </ion-radio>-->
                                
             
                         </ion-item>

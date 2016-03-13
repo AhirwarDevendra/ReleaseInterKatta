@@ -247,15 +247,15 @@ var timer;
     
     $scope.functionalArea = [
                                 {
-                                    "ID":"1",
+                                    "ID":1,
                                     "Name":"IT and Computers"
                                 },
                                 {
-                                    "ID":"2",
+                                    "ID":2,
                                     "Name":"Management"
                                 },
                                 {
-                                    "ID":"3",
+                                    "ID":3,
                                     "Name":"Multimedia"
                                 }
                             ];
@@ -264,53 +264,53 @@ var timer;
                     "ITCategory" : 
                     [
                           {
-                            "ID":"1",
+                            "ID":1,
                             "Name":"Php Developer",
                             "Path":"img/php.svg"  
                           },
                           {
-                            "ID":"2",
+                            "ID":2,
                             "Name":"Java Developer",
                             "Path":"img/java.svg"  
                           }
                           ,
                           {
-                            "ID":"3",
+                            "ID":3,
                             "Name":"C/C++ Developer",
                             "Path":"img/cplusplus.svg"
                           },
                           {
-                            "ID":"4",
+                            "ID":4,
                             "Name":"Dot Net Developer",
                             "Path":"img/dot-net.svg"
                           },
                           {
-                            "ID":"5",
+                            "ID":5,
                             "Name":"UI/UX Developer",
                             "Path":"img/css3.svg"
                           },
                           {
-                            "ID":"6",
+                            "ID":6,
                             "Name":"Content Management",
                             "Path":"img/android.svg"
                           },
                           {
-                            "ID":"7",
+                            "ID":7,
                             "Name":"Software Testing",
                             "Path":"img/android.svg"
                           },
                           {
-                            "ID":"8",
+                            "ID":8,
                             "Name":"Digital Marketing",
                             "Path":"img/phone-gap.svg"
                           },
                           {
-                            "ID":"9",
+                            "ID":9,
                             "Name":"IOS Developer",
                             "Path":"img/apple.svg"
                           },
                           {
-                            "ID":"10",
+                            "ID":10,
                             "Name":"Android Developer",
                             "Path":"img/android.svg"
                           },
@@ -409,8 +409,10 @@ var timer;
                  $scope.SelectCategory = $scope.Category.ITCategory;
                  show = false;
                     console.log($scope.SelectTitle);
-                    $scope.ShowCategory = true;
+                    $scope.ShowCategory = true;                 
                         }, 400);
+            
+            
             
             /*$scope.ShowIT = true;
             $scope.ShowMngt = false;
