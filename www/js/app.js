@@ -268,113 +268,124 @@ var timer;
                           {
                             "ID":"1",
                             "Name":["Php","Developer"],
-                            "Path":"img/php.svg"  
+                            "Path":"img/IT/php.svg"  
                           },
                           {
                             "ID":"2",
                             "Name":["Java","Developer"],
-                            "Path":"img/java.svg"  
+                            "Path":"img/IT/java.svg"  
                           }
                           ,
                           {
                             "ID":"3",
                             "Name":["C/C++","Developer"],
-                            "Path":"img/cplusplus.svg"
+                            "Path":"img/IT/cplusplus.svg"
                           },
                           {
                             "ID":"4",
                             "Name":["Dot Net","Developer"],
-                            "Path":"img/dot-net.svg"
+                            "Path":"img/IT/dot-net.svg"
                           },
                           {
                             "ID":"5",
                             "Name":["UI/UX","Developer"],
-                            "Path":"img/css3.svg"
+                            "Path":"img/IT/ui.svg"
                           },
                           {
                             "ID":"6",
                             "Name":["Content","Management"],
-                            "Path":"img/android.svg"
+                            "Path":"img/IT/cm.svg"
                           },
                           {
                             "ID":"7",
                             "Name":["Software","Testing"],
-                            "Path":"img/android.svg"
+                            "Path":"img/IT/st.svg"
                           },
                           {
                             "ID":"8",
                             "Name":["Disigtal","Marketing"],
-                            "Path":"img/phone-gap.svg"
+                            "Path":"img/IT/dm.svg"
                           },
                           {
                             "ID":"9",
                             "Name":["IOC","Developer"],
-                            "Path":"img/apple.svg"
+                            "Path":"img/IT/apple.svg"
                           },
                           {
                             "ID":"10",
                             "Name":["Android","Developer"],
-                            "Path":"img/android.svg"
+                            "Path":"img/IT/android.svg"
                           },
                           {
                             "ID":"11",
                             "Name":["Database","Developer"],
-                            "Path":"img/database.svg"
+                            "Path":"img/IT/database.svg"
                           },
                           {
                             "ID":"12",
                             "Name":["Web","Developer"],
-                            "Path":"img/wordpress.svg"
+                            "Path":"img/IT/wordpress.svg"
                           }
                     ],               
                     "ManagementCategory" :
                     [
                           {
                             "ID":"1",
-                            "Name":"Finance"
+                            "Name":["Finance",""],
+                            "Path":"img/Management/finance.svg"  
                           },
                           {
                             "ID":"2",
-                            "Name":"Marketing"
+                            "Name":["Marketing",""],
+                            "Path":"img/Management/marketing.svg"
                           },
                           {
                             "ID":"3",
-                            "Name":"Sales"
+                            "Name":["Sales",""],
+                            "Path":"img/Management/sales.svg"
                           },
                           {
                             "ID":"4",
-                            "Name":"Operation"
+                            "Name":["Operation",""],
+                            "Path":"img/Management/operation.svg"
                           },
                           {
                             "ID":"5",
-                            "Name":"HR"
+                            "Name":["Human","Resource"],
+                            "Path":"img/Management/hr.svg"
                           },
                           {
                             "ID":"6",
-                            "Name":"Banking"
+                            "Name":["Banking",""],
+                            "Path":"img/Management/banking.svg"
                           }
                     ],        
                     "MultimediaCategory" :
                     [
                           {
                             "ID":"1",
-                            "Name":"Graphic Designer"
+                            "Name":["Graphic","Designer"],
+                            "Path":"img/Multimedia/gd.svg"
                           },
                           {
                             "ID":"2",
-                            "Name":"Animation Maker"
+                            "Name":["Animation","Maker"],
+                            "Path":"img/Multimedia/animation.svg"
                           },
                           {
                             "ID":"3",
-                            "Name":"Photography"
+                            "Name":["Photography",""],
+                            "Path":"img/Multimedia/photography.svg"
                           },
                           {
                             "ID":"4",
-                            "Name":"Video Making/Editing"
+                            "Name":["Video","Editing"],
+                            "Path":"img/Multimedia/video.svg"
                           },
                           {
                             "ID":"5",
-                            "Name":"Adobe Photoshop/CoralDraw/Illustrator"
+                            "Name":["Adobe","Developers"],
+                            "Path":"img/Multimedia/illustrator.svg"
                           }
                         ]
                     };
@@ -433,6 +444,7 @@ var timer;
              $scope.ShowCategory = false;
              timer = $timeout(function () {
                  $scope.SelectTitle = $scope.functionalArea[1].Name;
+                 $scope.SelectCategory = $scope.Category.ManagementCategory;
                  show = false;
             console.log($scope.SelectTitle);
                     $scope.ShowCategory = true;
@@ -448,6 +460,9 @@ var timer;
              $scope.ShowCategory = false;
              timer = $timeout(function () {
                  $scope.SelectTitle = $scope.functionalArea[2].Name;
+                 $scope.SelectCategory = $scope.Category.MultimediaCategory;
+                 
+                 
                  show = false;
             console.log($scope.SelectTitle);
                     $scope.ShowCategory = true;
