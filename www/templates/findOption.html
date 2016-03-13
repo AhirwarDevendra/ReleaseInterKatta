@@ -77,9 +77,11 @@
                                     
                                         <div class="col col-50" ng-repeat="item in SelectCategory">
                                         
-                                            <ion-radio value="{{item.Name}}">
-                                                <img src="{{item.Path}}" style="width:140px; height:70px;"/>  <br>
-                                                <span style="margin-left:5px;margin-right:5px;">{{item.Name}}</span>
+                                             <img src="{{item.Path}}" style="width:140px; height:70px;" ng-click="CheckCate(item.Name)"/>
+                                            <ion-radio value="{{item.Name}}" ng-model="checkRadio">
+                                                <div style="padding-right:50px;">
+                                                    {{item.Name}}
+                                                </div>
                                             </ion-radio>                                  
                                             
                                         

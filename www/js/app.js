@@ -396,6 +396,12 @@ var timer;
     $scope.ShowMngt = false;
     $scope.ShowMedia = false;
    
+    $scope.CheckCate = function($item)
+    {
+        console.log($item);
+        $scope.checkRadio = $item;
+    }
+    
     $scope.AreaChange = function()
     {
         //alert($scope.choice.myFunctionalArea); 
