@@ -198,6 +198,8 @@ $scope.closeModel = function()
     $scope.popover.show($event);
   };
     
+    
+   
     $scope.items = [];
     $scope.groups = [];
   /*for (var i=0; i<1; i++) {
@@ -264,64 +266,64 @@ var timer;
                     "ITCategory" : 
                     [
                           {
-                            "ID":1,
-                            "Name":"Php Developer",
+                            "ID":"1",
+                            "Name":["Php","Developer"],
                             "Path":"img/php.svg"  
                           },
                           {
-                            "ID":2,
-                            "Name":"Java Developer",
+                            "ID":"2",
+                            "Name":["Java","Developer"],
                             "Path":"img/java.svg"  
                           }
                           ,
                           {
-                            "ID":3,
-                            "Name":"C/C++ Developer",
+                            "ID":"3",
+                            "Name":["C/C++","Developer"],
                             "Path":"img/cplusplus.svg"
                           },
                           {
-                            "ID":4,
-                            "Name":"Dot Net Developer",
+                            "ID":"4",
+                            "Name":["Dot Net","Developer"],
                             "Path":"img/dot-net.svg"
                           },
                           {
-                            "ID":5,
-                            "Name":"UI/UX Developer",
+                            "ID":"5",
+                            "Name":["UI/UX","Developer"],
                             "Path":"img/css3.svg"
                           },
                           {
-                            "ID":6,
-                            "Name":"Content Management",
+                            "ID":"6",
+                            "Name":["Content","Management"],
                             "Path":"img/android.svg"
                           },
                           {
-                            "ID":7,
-                            "Name":"Software Testing",
+                            "ID":"7",
+                            "Name":["Software","Testing"],
                             "Path":"img/android.svg"
                           },
                           {
-                            "ID":8,
-                            "Name":"Digital Marketing",
+                            "ID":"8",
+                            "Name":["Disigtal","Marketing"],
                             "Path":"img/phone-gap.svg"
                           },
                           {
-                            "ID":9,
-                            "Name":"IOS Developer",
+                            "ID":"9",
+                            "Name":["IOC","Developer"],
                             "Path":"img/apple.svg"
                           },
                           {
-                            "ID":10,
-                            "Name":"Android Developer",
+                            "ID":"10",
+                            "Name":["Android","Developer"],
                             "Path":"img/android.svg"
                           },
                           {
                             "ID":"11",
-                            "Name":"Database Developer",
+                            "Name":["Database","Developer"],
                             "Path":"img/database.svg"
                           },
                           {
                             "ID":"12",
-                            "Name":"Web Developer",
+                            "Name":["Web","Developer"],
                             "Path":"img/wordpress.svg"
                           }
                     ],               
