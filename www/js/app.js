@@ -79,9 +79,9 @@ var timer;
 
 $timeout.cancel(timer);
     
-console.log("Controller Called");
+console.log($scope.myCheck);
     
-$scope.myCheck = false;
+//$scope.myCheck = false;
        
 
 var AppInfo = {
@@ -523,8 +523,11 @@ var timer;
           
         //alert($scope.choice.myFunctionalArea+" "+$scope.choice.CityName);
           
-        var selectedCategory = null;  
-        if($scope.choice.myFunctionalArea == "IT and Computers")
+        var selectedCategory = null;
+        
+        selectedCategory = $scope.checkRadio;
+          alert(selectedCategory);
+        /*if($scope.choice.myFunctionalArea == "IT and Computers")
         {
             selectedCategory = $scope.choice.ITChoice;
         }
@@ -552,7 +555,7 @@ var timer;
             alert("Success Category "+$scope.choice.myFunctionalArea);
             //$state.go('internshiplist');
         }
-          
+          */
         /*if($scope.choice.ITChoice == null)
         {
             alert("select Category");
